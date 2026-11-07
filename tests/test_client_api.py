@@ -38,6 +38,9 @@ def test_client_info_queries(mt5_client):
     total = mt5_client.symbols_total()
     assert total >= 5
 
+    ok_select = mt5_client.symbol_select("EURUSD", True)
+    assert ok_select is True
+
     symbols = mt5_client.symbols_get()
     assert symbols is not None
     assert len(symbols) >= 5

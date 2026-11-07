@@ -75,7 +75,7 @@ from .types import (
 from .client import (
     MetaTrader5Client, default_client,
     initialize, shutdown, version, terminal_info, account_info, login,
-    symbols_total, symbols_get, symbol_info, symbol_info_tick,
+    symbols_total, symbols_get, symbol_info, symbol_info_tick, symbol_select,
     copy_rates_from, copy_rates_from_pos, copy_rates_from_pos_df,
     copy_rates_range, copy_ticks_from,
     order_send, order_check, order_calc_margin, order_calc_profit,
@@ -97,7 +97,7 @@ __all__ = [
     "MT5GatewayServer", "MockMT5Engine",
     # Functions
     "initialize", "shutdown", "version", "terminal_info", "account_info", "login",
-    "symbols_total", "symbols_get", "symbol_info", "symbol_info_tick",
+    "symbols_total", "symbols_get", "symbol_info", "symbol_info_tick", "symbol_select",
     "copy_rates_from", "copy_rates_from_pos", "copy_rates_from_pos_df",
     "copy_rates_range", "copy_ticks_from",
     "order_send", "order_check", "order_calc_margin", "order_calc_profit",

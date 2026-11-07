@@ -181,6 +181,11 @@ class MetaTrader5Client:
         res = self._rpc_call("symbols_total")
         return int(res or 0)
 
+    def symbol_select(self, symbol: str, enable: bool = True) -> bool:
+        """Select a symbol in the Market Watch window or remove a symbol from the window."""
+        res = self._rpc_call("symbol_select", {"symbol": symbol, "enable": enable})
+        return bool(res)
+
     def symbols_get(self, group: str = "") -> Optional[Tuple[SymbolInfo, ...]]:
         """Get all symbols or symbols matching group filter."""
         res = self._rpc_call("symbols_get", {"group": group})
@@ -350,6 +355,7 @@ terminal_info = default_client.terminal_info
 account_info = default_client.account_info
 login = default_client.login
 symbols_total = default_client.symbols_total
+symbol_select = default_client.symbol_select
 symbols_get = default_client.symbols_get
 symbol_info = default_client.symbol_info
 symbol_info_tick = default_client.symbol_info_tick

@@ -461,6 +461,14 @@ class MockMT5Engine:
             return self.get_account_info()
         elif method == "symbols_total":
             return len(self.symbols)
+        elif method == "symbol_select":
+            sym = params.get("symbol", "") if isinstance(params, dict) else str(params)
+            enable = params.get("enable", True) if isinstance(params, dict) else True
+            sym_upper = sym.upper()
+            if sym_upper in self.symbols:
+                self.symbols[sym_upper]["select"] = bool(enable)
+                return True
+            return True
         elif method == "symbols_get":
             group = params.get("group") if isinstance(params, dict) else None
             res = []
