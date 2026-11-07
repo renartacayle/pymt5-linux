@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mt5-gateway:
+    build: .
+    container_name: mt5-linux-gateway
+    restart: unless-stopped
+    ports:
+      - "18812:18812"
+    environment:
+      - DISPLAY=:99
+    volumes:
+      - wine-data:/root/.wine
+
+volumes:
+  wine-data:
